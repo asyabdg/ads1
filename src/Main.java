@@ -105,6 +105,19 @@ public class Main {
                 } else {
                     System.out.println("The string contains not only digits");
                 }
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("Time taken: " + duration + " milliseconds");
+            case 9:
+                System.out.println("Enter the first number:");
+                n = scanner.nextInt();
+                System.out.println("Enter the second number:");
+                int k = scanner.nextInt();
+                startTime = System.nanoTime();
+                int result9 = binomial_coefficient(n, k);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("Binomial coefficient (n, k), where n is the first number, k is the second number: " + result9);
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -238,5 +251,23 @@ public class Main {
             return false;
         }
         return check_digits(s.substring(1));
+    }
+
+
+    /** This method calculates binomial coefficient for entered values
+     * It uses a recursive approach
+     * Time complexity: O(n * k), where n, k are the entered numbers (index of binomial coefficient)
+     * resulting in quadratic time complexity
+     * @param n is the first entered number
+     * @param k is the secobd entered number
+     * @return binomial coefficient (n, k)  */
+    public static int binomial_coefficient(int n, int k) {
+        if (k == 0) {
+            return 1;
+        }
+        if (n == k) {
+            return 1;
+        }
+        return binomial_coefficient(n - 1, k - 1) + binomial_coefficient(n - 1, k);
     }
 }
