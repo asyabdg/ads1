@@ -59,6 +59,15 @@ public class Main {
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("The factorial of the number is " + result4);
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 5:
+                System.out.println("Enter the member number of the Fibonacci sequence");
+                n = scanner.nextInt();
+                startTime = System.nanoTime();
+                int result5 = fibonacci(n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("A member of the sequence with the entered number " + result5);
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -126,5 +135,22 @@ public class Main {
             return 1;
         }
         return n * factorial(n - 1);
+    }
+
+
+    /** This method counts the member of the Fibonacci sequence with the entered number
+     * It uses a recursive approach
+     * Time complexity: O(n^2), where n is the entered number
+     * resulting in quadratic time complexity
+     * @param n number of the element of the Fibonacci sequence that to be calculated
+     * @return member of the Fibonacci sequence with the entered number */
+    public static int fibonacci(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return fibonacci(n - 2) + fibonacci(n - 1);
     }
 }
