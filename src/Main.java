@@ -23,6 +23,20 @@ public class Main {
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("The minimum number of the array is " + result1);
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 2:
+                System.out.println("Enter the length of the array:");
+                n = scanner.nextInt();
+                System.out.println("Enter the array:");
+                arr = new int[n];
+                for (int i = 0; i < n; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+                startTime = System.nanoTime();
+                double result2 = average(arr, n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("The average of the array is " + result2);
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -45,5 +59,21 @@ public class Main {
             }
         }
         return min;
+    }
+
+
+    /** * This method calculates the average of the array
+     * It uses an iterative approach
+     * Time complexity: O(n), where n is the length of the array
+     * resulting in linear time complexity
+     * @param arr The array for which the average is to be calculated
+     * @param n The length of the array arr
+     * @return The average of the array arr */
+    public static double average(int[] arr, int n) {
+        double sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+        return sum / n;
     }
 }
