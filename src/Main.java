@@ -94,6 +94,17 @@ public class Main {
                 endTime = System.nanoTime();
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 8:
+                System.out.println("Enter string which to be check:");
+                String s = scanner.next();
+                startTime = System.nanoTime();
+                boolean result8 = check_digits(s);
+                endTime = System.nanoTime();
+                if (result8) {
+                    System.out.println("The string contains only digits");
+                } else {
+                    System.out.println("The string contains not only digits");
+                }
         }
     }
 
@@ -197,7 +208,7 @@ public class Main {
 
 
     /**  This method output the entered array in reverse order
-     * It uses an recursive approach
+     * It uses a recursive approach
      * Time complexity: O(n), where n is the length of the array
      * resulting in linear time complexity
      * @param arr The array that to be reversed
@@ -210,5 +221,22 @@ public class Main {
         }
         System.out.print(arr[n - 1] + " ");
         reverse_array(arr, n - 1);
+    }
+
+
+    /** This method checks whether the entered string consists only of digits
+     * It uses a recursive approach
+     * Time complexity: O(n), where n is the length of the array
+     * resulting in linear time complexity
+     * @param s the string which to be checked on consisting only of digits
+     * @return true if the string consists only of digits, false if the string consists not only of digits  */
+    public static boolean check_digits(String s) {
+        if (s.length() == 0) {
+            return true;
+        }
+        if (!Character.isDigit(s.charAt(0))) {
+            return false;
+        }
+        return check_digits(s.substring(1));
     }
 }
