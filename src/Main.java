@@ -80,6 +80,20 @@ public class Main {
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("The first number entered to the power of the second number entered " + result6);
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 7:
+                System.out.println("Enter the length of the array:");
+                n = scanner.nextInt();
+                System.out.println("Enter the array:");
+                arr = new int[n];
+                for (int i = 0; i < n; i++) {
+                    arr[i] = scanner.nextInt();
+                }
+                System.out.println("The array in reverse order:");
+                startTime = System.nanoTime();
+                reverse_array(arr, n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -179,5 +193,22 @@ public class Main {
             return 1;
         }
         return a * power(a, n - 1);
+    }
+
+
+    /**  This method output the entered array in reverse order
+     * It uses an recursive approach
+     * Time complexity: O(n), where n is the length of the array
+     * resulting in linear time complexity
+     * @param arr The array that to be reversed
+     * @param n The length of the array arr
+     * @return array arr in reverse order */
+    public static void reverse_array(int[] arr, int n) {
+        if (n == 1) {
+            System.out.println(arr[0]);
+            return;
+        }
+        System.out.print(arr[n - 1] + " ");
+        reverse_array(arr, n - 1);
     }
 }
