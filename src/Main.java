@@ -118,6 +118,17 @@ public class Main {
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("Binomial coefficient (n, k), where n is the first number, k is the second number: " + result9);
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 10:
+                System.out.println("Enter the first number:");
+                a = scanner.nextInt();
+                System.out.println("Enter the second number:");
+                int b = scanner.nextInt();
+                startTime = System.nanoTime();
+                int result10 = gcd(a, b);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("Gcd of two entered numbered is " + result10);
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -259,7 +270,7 @@ public class Main {
      * Time complexity: O(n * k), where n, k are the entered numbers (index of binomial coefficient)
      * resulting in quadratic time complexity
      * @param n is the first entered number
-     * @param k is the secobd entered number
+     * @param k is the second entered number
      * @return binomial coefficient (n, k)  */
     public static int binomial_coefficient(int n, int k) {
         if (k == 0) {
@@ -269,5 +280,20 @@ public class Main {
             return 1;
         }
         return binomial_coefficient(n - 1, k - 1) + binomial_coefficient(n - 1, k);
+    }
+
+
+    /** This method calculates gcd of two entered numbers
+     * It uses a recursive approach
+     * Time complexity: O(log(a)), where a is the entered number
+     * resulting in logarithmic time complexity
+     * @param a is the first entered number
+     * @param b is the second entered number
+     * @return greatest common divisor of two entered values: gcd(a, b)  */
+    public static int gcd(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+        return gcd(b % a, a);
     }
 }
