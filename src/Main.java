@@ -50,6 +50,15 @@ public class Main {
                     System.out.println("The number is composit");
                 }
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 4:
+                System.out.println("Enter a number:");
+                n = scanner.nextInt();
+                startTime = System.nanoTime();
+                int result4 = factorial(n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("The factorial of the number is " + result4);
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -94,7 +103,7 @@ public class Main {
      * It uses an iterative approach
      * Time complexity: O(n), where n is the entered number
      * resulting in linear time complexity
-     * @param n The length of the array arr
+     * @param n number that to be checked prime or composite
      * @return true if the number is prime, false if the number is composite */
     public static boolean isPrime(int n) {
         for (int i = 2; i <= n / 2; i++) {
@@ -103,5 +112,19 @@ public class Main {
             }
         }
         return true;
+    }
+
+
+    /** * This method determines whether the number is prime or composite
+     * It uses a recursive approach
+     * Time complexity: O(n), where n is the entered number
+     * resulting in linear time complexity
+     * @param n number for which factorial is to be calcukated
+     * @return factorial of the number n */
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return n * factorial(n - 1);
     }
 }
