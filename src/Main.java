@@ -26,14 +26,15 @@ public class Main {
         }
     }
 
+
     /** * This method finds the minimum number of the array
-     * It uses an iterative approach *
+     * It uses an iterative approach
      * Time complexity: O(n), where n is the length of the array
      * resulting in linear time complexity
      * @param arr The array for which the minimum is to be found
      * @param n The length of the array arr
      * @return The minimun of the array */
-    public static int find_main(int[] arr, int n) {
+    public static int find_min(int[] arr, int n) {
         if (arr.length == 0) {
             return 0;
         }
@@ -45,6 +46,4 @@ public class Main {
         }
         return min;
     }
-
-
 }
