@@ -37,6 +37,19 @@ public class Main {
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("The average of the array is " + result2);
                 System.out.println("Time taken: " + duration + " milliseconds");
+            case 3:
+                System.out.println("Enter a number:");
+                n = scanner.nextInt();
+                startTime = System.nanoTime();
+                boolean result3 = isPrime(n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                if (result3) {
+                    System.out.println("The number is prime");
+                } else {
+                    System.out.println("The number is composit");
+                }
+                System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
 
@@ -75,5 +88,20 @@ public class Main {
             sum += arr[i];
         }
         return sum / n;
+    }
+
+    /** * This method determines whether the number is prime or composite
+     * It uses an iterative approach
+     * Time complexity: O(n), where n is the entered number
+     * resulting in linear time complexity
+     * @param n The length of the array arr
+     * @return true if the number is prime, false if the number is composite */
+    public static boolean isPrime(int n) {
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
