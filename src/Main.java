@@ -6,6 +6,7 @@ public class Main {
         System.out.println("Enter a number from 1 to 10");
         int p = scanner.nextInt();
         int n;
+        int a;
         double startTime, endTime, duration;
         int[] arr;
         switch(p) {
@@ -67,6 +68,17 @@ public class Main {
                 endTime = System.nanoTime();
                 duration = (endTime - startTime) / 1000000;
                 System.out.println("A member of the sequence with the entered number " + result5);
+                System.out.println("Time taken: " + duration + " milliseconds");
+            case 6:
+                System.out.println("Enter number to be raised to a power:");
+                a = scanner.nextInt();
+                System.out.println("Enter index of exponent:");
+                n = scanner.nextInt();
+                startTime = System.nanoTime();
+                int result6 = power(a, n);
+                endTime = System.nanoTime();
+                duration = (endTime - startTime) / 1000000;
+                System.out.println("The first number entered to the power of the second number entered " + result6);
                 System.out.println("Time taken: " + duration + " milliseconds");
         }
     }
@@ -138,7 +150,7 @@ public class Main {
     }
 
 
-    /** This method counts the member of the Fibonacci sequence with the entered number
+    /** This method calculates the member of the Fibonacci sequence with the entered number
      * It uses a recursive approach
      * Time complexity: O(n^2), where n is the entered number
      * resulting in quadratic time complexity
@@ -152,5 +164,20 @@ public class Main {
             return 1;
         }
         return fibonacci(n - 2) + fibonacci(n - 1);
+    }
+
+
+    /** This method calculates the first number entered to the power of the second number entered
+     * It uses a recursive approach
+     * Time complexity: O(n), where n is the entered number
+     * resulting in linear time complexity
+     * @param a the number to be raised to a power
+     * @param n index of exponent
+     * @return a ^ n */
+    public static int power(int a, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return a * power(a, n - 1);
     }
 }
